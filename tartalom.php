@@ -518,9 +518,9 @@ if ($cim == "Blog") {
 			//}
 			//}
 
-			echo '<div class="clear"></div>
-                                    <div class="tartalom_valaszto"></div>';
-			include "cimkek_cimke.php";
+			// Rmoved two lines below
+			// echo '<div class="clear"></div><div class="tartalom_valaszto"></div>';
+			// include "cimkek_cimke.php";
 		}
 		?>
 
@@ -580,9 +580,9 @@ if ($id != 61 and $id != 69 and $id != 66 and $menu_parent != 66 and ($id != 76)
 }
 
 	/*
-		                                if( $id==65 ){  //bemutatkozunk
-		                                    include("flv_player.php");
-		                                }
+		                                        if( $id==65 ){  //bemutatkozunk
+		                                            include("flv_player.php");
+		                                        }
 	*/
 	?>
                                 <?php
@@ -697,9 +697,9 @@ $nyito_oldal__ = true;
         <?php
 }
 	/*
-		            if( ($_SESSION['akt_alias']!="arak-ajanlatkeres") and ($dbname != "varosmegye") and ($dbname != "varos") and ($dbname != "megye") and ($id!=76) and ($id!=77) and ($id!=78) and ($id!=79) ){
-		                include("lablec_ajanlatkero.php");
-		            }
+		                    if( ($_SESSION['akt_alias']!="arak-ajanlatkeres") and ($dbname != "varosmegye") and ($dbname != "varos") and ($dbname != "megye") and ($id!=76) and ($id!=77) and ($id!=78) and ($id!=79) ){
+		                        include("lablec_ajanlatkero.php");
+		                    }
 	*/
 	?>
 

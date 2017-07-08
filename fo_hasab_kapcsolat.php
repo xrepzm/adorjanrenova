@@ -38,7 +38,6 @@
     <div class="tartalom_span"></div>
     <div class="clear">&nbsp;</div>
 </div>
-<div class="tartalom_span">&nbsp;</div>
 <div class="clear">&nbsp;</div>
 <div class="wrapper">
     <div class="row-fluid">
@@ -54,7 +53,7 @@
             <strong>
                 <a href="impressum.html">Impressum részletek itt</a>
             </strong>
-            <div class="tartalom_koz">&nbsp;</div>
+            <div class="span12">&nbsp;</div>
         </div>
     </div>
 </div>
