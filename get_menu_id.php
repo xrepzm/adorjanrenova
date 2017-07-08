@@ -112,7 +112,7 @@ if ( $conn ){
 								$dbname_galeria = "galeria";
 							}
 						}else{  //ha nincs akkor csak megye
-							$megye_neve = $data1['nev']." megye";
+							$megye_neve = $data1['nev']; // remove suffix: ." megye"
 							$megye_link = $data1['link'];
 
 							$menu_id = $data1['id'];
