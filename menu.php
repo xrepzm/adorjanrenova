@@ -55,7 +55,7 @@ if ( $conn ){
 					}else{
 						if( $menu_alias!="impressum" ){
 							if( $menu_alias=="tetoszigeteles-tipusok-szerint" ){
-								echo "'><span>".$fo_cim."</span>";
+								echo "'><span><a href='/tetoszigeteles-tipusok-szerint.html'>".$fo_cim."</a></span>";
 							}else{
 								echo "'><a href='".$menu_alias.".html'><span>".$fo_cim."</span></a>";
 							}
