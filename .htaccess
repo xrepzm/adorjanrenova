@@ -1,49 +1,8 @@
 Options +FollowSymLinks
 RewriteEngine On
-# RewriteBase /
 
-#RewriteCond %{HTTP_USER_AGENT} libwww-perl.*
-#RewriteRule .* ? [F,L]
-
-
-#RewriteCond %{HTTPS} off
-#RewriteRule (.*) https://www.%{HTTP_HOST}%{REQUEST_URI}
-
-#RewriteCond %{HTTPS} off
-#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-#RewriteCond %{HTTP_HOST} !^www\.
-#RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-#Redirect 301 /karrier.html https://www.adorjanrenova.hu/allas.html
-#Redirect 301 /celkituzeseink.html https://www.adorjanrenova.hu/bemutatkozunk.html
-#Redirect 301 /letoltesek.html https://www.adorjanrenova.hu/dokumentumok.html
-
-#Redirect 301 /budapest/budapest-i-kerulete-budavar.html https://www.adorjanrenova.hu/budapest/budapest-budavar.html
-#Redirect 301 /budapest/budapest-iii-kerulete-obuda-bekasmegyer.html https://www.adorjanrenova.hu/budapest/budapest-obuda-bekasmegyer.html
-#Redirect 301 /budapest/budapest-iv-kerulete-ujpest.html https://www.adorjanrenova.hu/budapest/budapest-ujpest.html
-#Redirect 301 /budapest/budapest-ix-kerulete-ferencvaros.html https://www.adorjanrenova.hu/budapest/budapest-ferencvaros.html
-#Redirect 301 /budapest/budapest-v-kerulete-belvaros-lipotvaros.html https://www.adorjanrenova.hu/budapest/budapest-belvaros-lipotvaros.html
-#Redirect 301 /budapest/budapest-vi-kerulete-terezvaros.html https://www.adorjanrenova.hu/budapest/budapest-terezvaros.html
-#Redirect 301 /budapest/budapest-vii-kerulete-erzsebetvaros.html https://www.adorjanrenova.hu/budapest/budapest-erzsebetvaros.html
-#Redirect 301 /budapest/budapest-viii-kerulete-jozsefvaros.html https://www.adorjanrenova.hu/budapest/budapest-jozsefvaros.html
-#Redirect 301 /budapest/budapest-x-kerulete-kobanya.html https://www.adorjanrenova.hu/budapest/budapest-kobanya.html
-#Redirect 301 /budapest/budapest-xi-kerulete-ujbuda.html https://www.adorjanrenova.hu/budapest/budapest-ujbuda.html
-#Redirect 301 /budapest/budapest-xii-kerulete-hegyvidek.html https://www.adorjanrenova.hu/budapest/budapest-hegyvidek.html
-#Redirect 301 /budapest/budapest-xiv-kerulete-zuglo.html https://www.adorjanrenova.hu/budapest/budapest-zuglo.html
-#Redirect 301 /budapest/budapest-xix-kerulete-kispest.html https://www.adorjanrenova.hu/budapest/budapest-kispest.html
-#Redirect 301 /budapest/budapest-xv-kerulete-rakospalota-pesujhely-ujpalota.html https://www.adorjanrenova.hu/budapest/budapest-rakospalota-pesujhely-ujpalota.html
-#Redirect 301 /budapest/budapest-xvii-kerulete-rakosmente.html https://www.adorjanrenova.hu/budapest/budapest-rakosmente.html
-#Redirect 301 /budapest/budapest-xviii-kerulete-pestszentlorinc-pestszentimre.html https://www.adorjanrenova.hu/budapest/budapest-pestszentlorinc-pestszentimre.html
-#Redirect 301 /budapest/budapest-xx-kerulete-perserzsebet.html https://www.adorjanrenova.hu/budapest/budapest-perserzsebet.html
-#Redirect 301 /budapest/budapest-xxi-kerulete-csepel.html https://www.adorjanrenova.hu/budapest/budapest-csepel.html
-#Redirect 301 /budapest/budapest-xxii-kerulete-budafok-budateteny.html https://www.adorjanrenova.hu/budapest/budapest-budafok-budateteny.html
-#Redirect 301 /budapest/budapest-xxiii-kerulete-soroksar.html https://www.adorjanrenova.hu/budapest/budapest-soroksar.html
-
-#RewriteCond %{HTTPS_HOST} ^adorjanrenova\.hu
-#RewriteRule (.*) https://www.adorjanrenova.hu/$1 [R=301,L]
-
-# Az alábbi szabályokat át kell gondolni. Jelen esetben a hiba_oldal.php a tartalom.php fájlban hívódik meg
-# ErrorDocument 404 /404.php
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteRule ^index.php$ - [L]
 RewriteRule ^kapcsolat.php$ - [L]
@@ -60,42 +19,33 @@ RewriteRule ^(.*)/(.*).html tartalom.php?alias1=$1&alias2=$2 [L]
 RewriteRule ^(.*).html&tab=(.*) index.php?alias1=$1&tab=$2 [L]
 RewriteRule ^(.*).html tartalom.php?alias1=$1 [L]
 
-#php_value upload_max_filesize 10M
-#php_value post_max_size 12M
-
 AddDefaultCharset utf-8
 
 <IfModule mod_expires.c>
-ExpiresActive On
-ExpiresByType image/png "access plus 1 year"
-ExpiresByType image/gif "access plus 1 year"
-ExpiresByType image/jpeg "access plus 1 year"
-ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
-ExpiresByType text/css "access plus 1 year"
-ExpiresByType application/x-javascript "access plus 1 year"
-ExpiresByType application/javascript "access plus 1 year"
-ExpiresByType text/javascript "access plus 1 year"
+    ExpiresActive On
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
 </IfModule>
 
 <FilesMatch "\.js$">
-AddHandler application/x-httpd-php .js
-#php_value default_mimetype "text/javascript"
+    AddHandler application/x-httpd-php .js
 </FilesMatch>
+
 <FilesMatch "\.css$">
-AddHandler application/x-httpd-php .css
-#php_value default_mimetype "text/css"
+    AddHandler application/x-httpd-php .css
 </FilesMatch>
 <FilesMatch "\.(htm|html|shtml)$">
-AddHandler application/x-httpd-php .html
-#php_value default_mimetype "text/html"
+    AddHandler application/x-httpd-php .html
 </FilesMatch>
 
 <IfModule mod_deflate.c>
-AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css         application/x-javascript application/javascript
+    AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
 </IfModule>
-
-
-#php_value auto_prepend_file /var/www/u1390/adorjanrenova.hu/gzip.php
-
 
 ServerSignature Off
