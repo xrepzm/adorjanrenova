@@ -1,34 +1,33 @@
 <?php
-include("simple-php-captcha.php");
+include "simple-php-captcha.php";
 $_SESSION['captcha'] = simple_php_captcha();
-	
-	
-	if( ($id!=76) and ($id!=77) and ($id!=78) and ($id!=79) ){
-		echo "<div class='tab_out' role='tabpanel' data-example-id='togglable-tabs'>";
-		echo "
+
+if (($id != 76) and ($id != 77) and ($id != 78) and ($id != 79)) {
+	echo "<div class='tab_out' role='tabpanel' data-example-id='togglable-tabs'>";
+	echo "
 		<ul id='myTab' class='nav nav-tabs bar_tabs' role='tablist'>
-			<li role='presentation' class='".($tab=="#tab_content1" ? 'active' : '' )."'><a href='#tab_content1' id='home-tab' role='tab' data-toggle='tab' aria-expanded='true'>Családi ház</a>
+			<li role='presentation' class='" . ($tab == "#tab_content1" ? 'active' : '') . "'><a href='#tab_content1' id='home-tab' role='tab' data-toggle='tab' aria-expanded='true'>Családi ház</a>
 			</li>
-			<li role='presentation' class='".($tab=="#tab_content2" ? 'active' : '' )."'><a href='#tab_content2' role='tab' id='profile-tab' data-toggle='tab' aria-expanded='false'>Társasház</a>
+			<li role='presentation' class='" . ($tab == "#tab_content2" ? 'active' : '') . "'><a href='#tab_content2' role='tab' id='profile-tab' data-toggle='tab' aria-expanded='false'>Társasház</a>
 			</li>
-			<li role='presentation' class='".($tab=="#tab_content3" ? 'active' : '' )."'><a href='#tab_content3' role='tab' id='profile-tab2' data-toggle='tab' aria-expanded='false'>Telephely</a>
+			<li role='presentation' class='" . ($tab == "#tab_content3" ? 'active' : '') . "'><a href='#tab_content3' role='tab' id='profile-tab2' data-toggle='tab' aria-expanded='false'>Telephely</a>
 			</li>
-			<li role='presentation' class='".($tab=="#tab_content4" ? 'active' : '' )."'><a href='#tab_content4' role='tab' id='profile-tab3' data-toggle='tab' aria-expanded='false'>Közület</a>
+			<li role='presentation' class='" . ($tab == "#tab_content4" ? 'active' : '') . "'><a href='#tab_content4' role='tab' id='profile-tab3' data-toggle='tab' aria-expanded='false'>Közület</a>
 			</li>
 		</ul>
 		";
-		echo "
+	echo "
 			<div id='myTabContent' class='tab-content'>
-				<div role='tabpanel' class='tab-pane fade ".($tab=="#tab_content1" ? 'active in' : '' )."' id='tab_content1' aria-labelledby='home-tab'>
+				<div role='tabpanel' class='tab-pane fade " . ($tab == "#tab_content1" ? 'active in' : '') . "' id='tab_content1' aria-labelledby='home-tab'>
 		";
-	}else{
-		echo "<br>";
-	}
-		
-		if( ($id!=77) and ($id!=78) and ($id!=79) ){
-?>		
+} else {
+	echo "<br>";
+}
+
+if (($id != 77) and ($id != 78) and ($id != 79)) {
+	?>
 			<div class="contact-box">
-				<form class="contact-form_up clearfix contact-form_up_csalad" action="components/mail/phpmailer/mail_magan.php" method="post" enctype="multipart/form-data">			
+				<form class="contact-form_up clearfix contact-form_up_csalad" action="components/mail/phpmailer/mail_magan.php" method="post" enctype="multipart/form-data">
 					<p class="input-block clearfix">
 						<label class="required label_kiemelt">Ajánlatot kérek mint: *</label><br>
 						<label class="required radio_label"><input class="valid" type="radio" name="mint" value="Tulajdonos">Tulajdonos</label>
@@ -46,11 +45,11 @@ $_SESSION['captcha'] = simple_php_captcha();
 						</span>
 						<input class="valid cim" type="text" name="cim" value="" placeholder="Cím">
 					</p>
-					
+
 					<p class="input-block">
 						<input type="text" class="valid" name="nev" value="" placeholder="Név">
 					</p>
-					
+
 					<p class="input-block clearfix">
 						<span class="clearfix plusz">
 							<label class="required cim">+36 </label>
@@ -62,35 +61,35 @@ $_SESSION['captcha'] = simple_php_captcha();
 							<input class="valid telefonszam" type="tel" name="telefonszam" value="" placeholder="Telefonszám">
 						</span>
 					</p>
-					
-					
+
+
 					<p class="input-block">
 						<input type="email" class="valid" name="email" value="" placeholder="E-mail">
 					</p>
-					
-					<p class="input-block textarea-block">                        
+
+					<p class="input-block textarea-block">
 						<textarea rows="6" cols="80" name="message" class="erd_uzenet" placeholder="Üzenet"></textarea>
 					</p>
-					
+
 					<p class="input-block clearfix captcha_code">
 						<span class="clearfix captcha_kep">
-							<?php 
-								echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="Biztonsági kód" title="Biztonsági kód">'; 
-							?>
+							<?php
+echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="Biztonsági kód" title="Biztonsági kód">';
+	?>
 						</span>
 						<span class="clearfix captcha_input">
 							<input type="text" name="captcha_code" class="valid kod_input" maxlength="6" placeholder="Biztonsági kód"/>
 						</span>
 					</p>
-					
+
 					<p class="talloz">
-						<label class="label_kepfeltolt">Kérem töltsön fel 2-3 képet a tetőröl. (.pdf, .doc, .docx, .jpg, .png):<br><span class="segedlet">Segítség a képfeltöltéshez:<a href="pdf/kepfeltoltes_segedlet.pdf" target="_blank">ITT</a></span></label> 
+						<label class="label_kepfeltolt">Kérem töltsön fel 2-3 képet a tetőröl. (.pdf, .doc, .docx, .jpg, .png):<br><span class="segedlet">Segítség a képfeltöltéshez:<a href="pdf/kepfeltoltes_segedlet.pdf" target="_blank">ITT</a></span></label>
 						<input type="file" name="kep1" class=""/>
 						<input type="file" name="kep2" class=""/>
 						<input type="file" name="kep3" class=""/>
 					</p>
-					
-					<p class="input-block contact-button clearfix p_kuld_uzenet"> 
+
+					<p class="input-block contact-button clearfix p_kuld_uzenet">
 						<input type="hidden" name="captcha" value="<?php echo $_SESSION['captcha']['code']; ?>">
 						<input type="hidden" name="domain" value="<?php echo domain; ?>">
 						<input type="hidden" name="tab" value="#tab_content1">
@@ -100,20 +99,20 @@ $_SESSION['captcha'] = simple_php_captcha();
 					</p><div class="clear"></div>
 				</form>
 			</div>
-<?php			
-		}
-		
-	if( ($id!=76) and ($id!=77) and ($id!=78) and ($id!=79) ){
-		echo "		
+<?php
+}
+
+if (($id != 76) and ($id != 77) and ($id != 78) and ($id != 79)) {
+	echo "
 				</div>
-				<div role='tabpanel' class='tab-pane fade ".($tab=="#tab_content2" ? 'active in' : '' )."' id='tab_content2' aria-labelledby='profile-tab'>
+				<div role='tabpanel' class='tab-pane fade " . ($tab == "#tab_content2" ? 'active in' : '') . "' id='tab_content2' aria-labelledby='profile-tab'>
 		";
-	}
-	
-	if( ($id!=76) and ($id!=78) and ($id!=79) ){
-?>				
+}
+
+if (($id != 76) and ($id != 78) and ($id != 79)) {
+	?>
 			<div class="contact-box">
-				<form class="contact-form_up clearfix contact-form_up_tarsashaz" action="components/mail/phpmailer/mail_tarsas.php" method="post" enctype="multipart/form-data">			
+				<form class="contact-form_up clearfix contact-form_up_tarsashaz" action="components/mail/phpmailer/mail_tarsas.php" method="post" enctype="multipart/form-data">
 					<p class="input-block clearfix">
 						<label class="required label_kiemelt">Ajánlatot kérek mint: *</label><br>
 						<label class="required radio_label"><input class="valid" type="radio" name="mint" value="Közös képviselő">Közös képviselő</label>
@@ -151,30 +150,30 @@ $_SESSION['captcha'] = simple_php_captcha();
 					<p class="input-block">
 						<input type="email" class="valid" name="email" value="" placeholder="E-mail">
 					</p>
-					
-					
-					<p class="input-block textarea-block">                        
+
+
+					<p class="input-block textarea-block">
 						<textarea rows="6" cols="80" name="message" class="erd_uzenet" placeholder="Üzenet"></textarea>
 					</p>
-					
+
 					<p class="input-block clearfix captcha_code">
 						<span class="clearfix captcha_kep">
-							<?php 
-								echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="Biztonsági kód" title="Biztonsági kód">'; 
-							?>
+							<?php
+echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="Biztonsági kód" title="Biztonsági kód">';
+	?>
 						</span>
 						<span class="clearfix captcha_input">
 							<input type="text" name="captcha_code" class="valid kod_input" maxlength="6" placeholder="Biztonsági kód"/>
 						</span>
 					</p>
-					
+
 					<p class="talloz">
-						<label class="label_kepfeltolt">Kérem töltsön fel 2-3 képet a tetőröl. (.pdf, .doc, .docx, .jpg, .png):<br><span class="segedlet">Segítség a képfeltöltéshez:<a href="pdf/kepfeltoltes_segedlet.pdf" target="_blank">ITT</a></span></label> 
+						<label class="label_kepfeltolt">Kérem töltsön fel 2-3 képet a tetőröl. (.pdf, .doc, .docx, .jpg, .png):<br><span class="segedlet">Segítség a képfeltöltéshez:<a href="pdf/kepfeltoltes_segedlet.pdf" target="_blank">ITT</a></span></label>
 						<input type="file" name="kep1" class=""/>
 						<input type="file" name="kep2" class=""/>
 						<input type="file" name="kep3" class=""/>
 					</p>
-					<p class="input-block contact-button clearfix p_kuld_uzenet"> 
+					<p class="input-block contact-button clearfix p_kuld_uzenet">
 						<input type="hidden" name="captcha" value="<?php echo $_SESSION['captcha']['code']; ?>">
 						<input type="hidden" name="domain" value="<?php echo domain; ?>">
 						<input type="hidden" name="tab" value="#tab_content2">
@@ -185,19 +184,19 @@ $_SESSION['captcha'] = simple_php_captcha();
 				</form>
 			</div>
 <?php
-		}
-	
-	if( ($id!=76) and ($id!=77) and ($id!=78) and ($id!=79) ){
-		echo "
+}
+
+if (($id != 76) and ($id != 77) and ($id != 78) and ($id != 79)) {
+	echo "
 				</div>
-				<div role='tabpanel' class='tab-pane fade ".($tab=="#tab_content3" ? 'active in' : '' )."' id='tab_content3' aria-labelledby='profile-tab'>												
+				<div role='tabpanel' class='tab-pane fade " . ($tab == "#tab_content3" ? 'active in' : '') . "' id='tab_content3' aria-labelledby='profile-tab'>
 		";
-	}
-	
-		if( ($id!=76) and ($id!=77) and ($id!=79) ){
-?>				
+}
+
+if (($id != 76) and ($id != 77) and ($id != 79)) {
+	?>
 			<div class="contact-box">
-				<form class="contact-form_up clearfix contact-form_up_telephely" action="components/mail/phpmailer/mail_vallalat.php" method="post" enctype="multipart/form-data">			
+				<form class="contact-form_up clearfix contact-form_up_telephely" action="components/mail/phpmailer/mail_vallalat.php" method="post" enctype="multipart/form-data">
 					<p class="input-block clearfix">
 						<label class="required label_kiemelt">Ajánlatot kérek mint: *</label><br>
 						<label class="required radio_label"><input class="valid" type="radio" name="mint" value="Tulajdonos">Tulajdonos</label>
@@ -235,26 +234,26 @@ $_SESSION['captcha'] = simple_php_captcha();
 					<p class="input-block">
 						<input type="email" class="valid" name="email" value="" placeholder="E-mail">
 					</p>
-					
-					
-					
-					<p class="input-block textarea-block">                        
+
+
+
+					<p class="input-block textarea-block">
 						<textarea rows="6" cols="80" name="message" class="erd_uzenet" placeholder="Üzenet"></textarea>
 					</p>
-					
+
 					<p class="input-block clearfix captcha_code">
 						<span class="clearfix captcha_kep">
-							<?php 
-								echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="Biztonsági kód" title="Biztonsági kód">'; 
-							?>
+							<?php
+echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="Biztonsági kód" title="Biztonsági kód">';
+	?>
 						</span>
 						<span class="clearfix captcha_input">
 							<input type="text" name="captcha_code" class="valid kod_input" maxlength="6" placeholder="Biztonsági kód"/>
 						</span>
 					</p>
-					
+
 					<p class="talloz">
-						<label class="label_kepfeltolt">Kérem töltsön fel 2-3 képet a tetőröl. (.pdf, .doc, .docx, .jpg, .png):<br><span class="segedlet">Segítség a képfeltöltéshez:<a href="pdf/kepfeltoltes_segedlet.pdf" target="_blank">ITT</a></span></label> 
+						<label class="label_kepfeltolt">Kérem töltsön fel 2-3 képet a tetőröl. (.pdf, .doc, .docx, .jpg, .png):<br><span class="segedlet">Segítség a képfeltöltéshez:<a href="pdf/kepfeltoltes_segedlet.pdf" target="_blank">ITT</a></span></label>
 						<input type="file" name="kep1" class=""/>
 						<input type="file" name="kep2" class=""/>
 						<input type="file" name="kep3" class=""/>
@@ -269,20 +268,20 @@ $_SESSION['captcha'] = simple_php_captcha();
 					</p><div class="clear"></div>
 				</form>
 			</div>
-<?php		
-		}
-	
-	if( ($id!=76) and ($id!=77) and ($id!=78) and ($id!=79) ){		
-		echo "
+<?php
+}
+
+if (($id != 76) and ($id != 77) and ($id != 78) and ($id != 79)) {
+	echo "
 				</div>
-				<div role='tabpanel' class='tab-pane fade ".($tab=="#tab_content4" ? 'active in' : '' )."' id='tab_content4' aria-labelledby='profile-tab'>												
+				<div role='tabpanel' class='tab-pane fade " . ($tab == "#tab_content4" ? 'active in' : '') . "' id='tab_content4' aria-labelledby='profile-tab'>
 		";
-	}
-	
-		if( ($id!=76) and ($id!=77) and ($id!=78) ){
-?>				
+}
+
+if (($id != 76) and ($id != 77) and ($id != 78)) {
+	?>
 			<div class="contact-box">
-				<form class="contact-form_up clearfix contact-form_up_kozulet" action="components/mail/phpmailer/mail_kozulet.php" method="post" enctype="multipart/form-data">			
+				<form class="contact-form_up clearfix contact-form_up_kozulet" action="components/mail/phpmailer/mail_kozulet.php" method="post" enctype="multipart/form-data">
 					<p class="input-block clearfix">
 						<label class="required label_kiemelt">Ajánlatot kérek mint: *</label><br>
 						<label class="required radio_label"><input class="valid" type="radio" name="mint" value="Megbízott">Megbízott</label>
@@ -319,23 +318,23 @@ $_SESSION['captcha'] = simple_php_captcha();
 					<p class="input-block">
 						<input type="email" class="valid" name="email" value="" placeholder="E-mail">
 					</p>
-					<p class="input-block textarea-block">                        
+					<p class="input-block textarea-block">
 						<textarea rows="6" cols="80" name="message" class="erd_uzenet" placeholder="Üzenet"></textarea>
 					</p>
-					
+
 					<p class="input-block clearfix captcha_code">
 						<span class="clearfix captcha_kep">
-							<?php 
-								echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="Biztonsági kód" title="Biztonsági kód">'; 
-							?>
+							<?php
+echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="Biztonsági kód" title="Biztonsági kód">';
+	?>
 						</span>
 						<span class="clearfix captcha_input">
 							<input type="text" name="captcha_code" class="valid kod_input" maxlength="6" placeholder="Biztonsági kód"/>
 						</span>
 					</p>
-					
+
 					<p class="talloz">
-						<label class="label_kepfeltolt">Kérem töltsön fel 2-3 képet a tetőröl. (.pdf, .doc, .docx, .jpg, .png):<br><span class="segedlet">Segítség a képfeltöltéshez:<a href="segedlet.pdf" target="_blank">ITT</a></span></label> 
+						<label class="label_kepfeltolt">Kérem töltsön fel 2-3 képet a tetőröl. (.pdf, .doc, .docx, .jpg, .png):<br><span class="segedlet">Segítség a képfeltöltéshez:<a href="pdf/kepfeltoltes_segedlet.pdf" target="_blank">ITT</a></span></label>
 						<input type="file" name="kep1" class=""/>
 						<input type="file" name="kep2" class=""/>
 						<input type="file" name="kep3" class=""/>
@@ -350,13 +349,13 @@ $_SESSION['captcha'] = simple_php_captcha();
 					</p><div class="clear"></div>
 				</form>
 			</div>
-<?php			
-		}
-	if( ($id!=76) and ($id!=77) and ($id!=78) and ($id!=79) ){
-		echo "
+<?php
+}
+if (($id != 76) and ($id != 77) and ($id != 78) and ($id != 79)) {
+	echo "
 				</div>
 			</div>
 		</div>
 		";
-	}
+}
 ?>
