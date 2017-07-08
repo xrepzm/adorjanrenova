@@ -2,7 +2,7 @@ Options +FollowSymLinks
 RewriteEngine On
 # RewriteBase /
 
-#RewriteCond %{HTTP_USER_AGENT} libwww-perl.* 
+#RewriteCond %{HTTP_USER_AGENT} libwww-perl.*
 #RewriteRule .* ? [F,L]
 
 
@@ -42,8 +42,8 @@ RewriteEngine On
 #RewriteCond %{HTTPS_HOST} ^adorjanrenova\.hu
 #RewriteRule (.*) https://www.adorjanrenova.hu/$1 [R=301,L]
 
-#ErrorDocument 404 https://www.adorjanrenova.hu/404.html
-
+# Az alábbi szabályokat át kell gondolni. Jelen esetben a hiba_oldal.php a tartalom.php fájlban hívódik meg
+# ErrorDocument 404 /404.php
 
 RewriteRule ^index.php$ - [L]
 RewriteRule ^kapcsolat.php$ - [L]
@@ -64,7 +64,7 @@ RewriteRule ^(.*).html tartalom.php?alias1=$1 [L]
 #php_value post_max_size 12M
 
 AddDefaultCharset utf-8
- 
+
 <IfModule mod_expires.c>
 ExpiresActive On
 ExpiresByType image/png "access plus 1 year"

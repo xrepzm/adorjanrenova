@@ -555,6 +555,7 @@ if ($cim == "Blog") {
                                                         <div class="tartalom_valaszto"></div>';
 			include "cimkek_cimke.php";
 		} else {
+			header("HTTP/1.0 404 Not Found");
 			include "hiba_oldal.php";
 		}
 		//}
